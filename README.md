@@ -1,5 +1,5 @@
 # FTC_Multi_VisionPortal
- Example of an FTC VisionPortal with 2 VisionProcessors.
+ Example of a FIRST FTC VisionPortal with 2 VisionProcessors.
 
 ColorVisionProcessor is a VisionProcessor that can detect colors in 3 regions on the screen.
 
