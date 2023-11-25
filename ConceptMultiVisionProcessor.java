@@ -134,9 +134,12 @@ public class ConceptMultiVisionProcessor extends LinearOpMode {
 
         telemetry.addData("State", "waiting for colorProcessor");
         telemetry.update();
+
+        // this can take a few seconds
         while (!colorProcessor.isCameraInitialized()) {
             sleep(100);
         }
+
         telemetry.addData("State", "initialized");
         telemetry.update();
 
@@ -144,15 +147,19 @@ public class ConceptMultiVisionProcessor extends LinearOpMode {
 
     private void setColorProcessorRegions()
     {
-        colorProcessor.RegionTopLeft[0] = new Point(109, 98);
-        colorProcessor.RegionTopLeft[1] = new Point(181, 98);
-        colorProcessor.RegionTopLeft[2] = new Point(253, 98);
+        // For webcam, screen size is (0,0) to (639,479)
 
+        // set default values which can be changed later
+        colorProcessor.RegionTopLeft[0] = new Point(109, 98);
         colorProcessor.RegionWidth[0] = 60;
-        colorProcessor.RegionWidth[1] = 60;
-        colorProcessor.RegionWidth[2] = 100;
         colorProcessor.RegionHeight[0] = 80;
+
+        colorProcessor.RegionTopLeft[1] = new Point(181, 98);
+        colorProcessor.RegionWidth[1] = 60;
         colorProcessor.RegionHeight[1] = 90;
+
+        colorProcessor.RegionTopLeft[2] = new Point(253, 98);
+        colorProcessor.RegionWidth[2] = 100;
         colorProcessor.RegionHeight[2] = 100;
     }
 
